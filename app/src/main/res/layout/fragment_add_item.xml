@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Поле для введення назви -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Назва"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Поле для введення опису -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Опис"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Поле для введення назви магазину -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutStoreName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextStoreName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Назва магазину"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Поле для введення початкової ціни -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutOriginalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextOriginalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Початкова ціна"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Поле для введення ціни зі знижкою -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutDiscountedPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDiscountedPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Ціна зі знижкою"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Поле для введення дати строку дії знижки через DatePickerDialog -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutValidUntil"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextValidUntil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Діє до (YYYY-MM-DD)"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:inputType="date"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonSelectDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_date"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Кнопка для збереження -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save_button"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

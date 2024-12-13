@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itemListFragment">
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.example.kr.ui.fragments.ItemListFragment"
+        android:label="Item List"
+        tools:layout="@layout/fragment_item_list">
+        <action
+            android:id="@+id/action_itemListFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_addEditItemFragment"
+            app:destination="@id/addItemFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.kr.ui.fragments.ItemDetailFragment"
+        android:label="Item Details"
+        tools:layout="@layout/fragment_item_detail">
+        <argument
+            android:name="itemId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.kr.ui.fragments.AddItemFragment"
+        android:label="Add/Edit Item"
+        tools:layout="@layout/fragment_add_item" />
+</navigation>
+

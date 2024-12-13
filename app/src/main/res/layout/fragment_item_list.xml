@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <Button
+        android:id="@+id/buttonLoadFromNetwork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load from Network"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Кнопка для показу/приховування фільтрів -->
+    <Button
+        android:id="@+id/buttonToggleFilters"
+        style="@style/Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_filters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Контейнер для фільтрів, спочатку прихований -->
+    <LinearLayout
+        android:id="@+id/layoutFilters"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonToggleFilters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Поле пошуку за назвою/описом -->
+        <EditText
+            android:id="@+id/editTextQuery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_hint"
+            android:backgroundTint="@color/gray"
+            android:padding="8dp"/>
+
+        <!-- Поле для введення назви магазину -->
+        <EditText
+            android:id="@+id/editTextStoreName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/store_name_hint"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/gray"
+            android:padding="8dp"/>
+
+        <!-- Поле для введення дати строку дії знижки через DatePickerDialog -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/editTextValidUntil"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="@string/valid_until_hint"
+                android:focusable="false"
+                android:clickable="false"
+                android:inputType="date"
+                android:background="@drawable/rounded_rectangle"
+                android:padding="8dp"/>
+
+            <Button
+                android:id="@+id/buttonSelectDateFilter"
+                style="@style/Button.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_date"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- Кнопка для виконання фільтрації -->
+        <Button
+            android:id="@+id/buttonFilter"
+            style="@style/Button.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/filter_button"
+            android:layout_marginTop="8dp"/>
+
+        <!-- ChipGroup для відображення вибраних фільтрів -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleLine="false"
+            app:chipSpacing="8dp"/>
+    </LinearLayout>
+
+    <!-- Розділювач -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:elevation="2dp"
+        app:cardBackgroundColor="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/layoutFilters"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- TextView для повідомлення "Немає товарів" -->
+    <TextView
+        android:id="@+id/textNoItems"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/no_items_found"
+        android:textSize="16sp"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- RecyclerView для відображення списку товарів -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/textNoItems"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fabAddItem"/>
+
+    <!-- FloatingActionButton для додавання нового товару -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/add_item"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/secondaryColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

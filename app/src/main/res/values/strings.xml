@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DiscountsApp</string>
+    <string name="add_item">Додати товар</string>
+    <string name="search_hint">Пошук за назвою чи описом</string>
+    <string name="store_name_hint">Назва магазину</string>
+    <string name="valid_until_hint">Діє до (YYYY-MM-DD)</string>
+    <string name="filter_button">Фільтр</string>
+    <string name="select_date">Вибрати дату</string>
+    <string name="save_button">Зберегти</string>
+    <string name="delete_button">Видалити</string>
+    <string name="please_fill_all_fields">Будь ласка, заповніть всі поля</string>
+    <string name="no_items_found">Немає товарів, що відповідають фільтрам</string>
+    <string name="item_added_successfully">Товар успішно доданий</string>
+    <string name="show_filters">Показати фільтри</string>
+    <string name="hide_filters">Приховати фільтри</string>
+
+</resources>
